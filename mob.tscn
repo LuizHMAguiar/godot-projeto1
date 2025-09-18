@@ -54,12 +54,12 @@ gravity_scale = 0.0
 script = ExtResource("1_1qmh0")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["mobs"]]
 rotation = 1.5707964
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_pcqmr")
 animation = &"walk"
-frame_progress = 0.5413272
+frame_progress = 0.8025348
 speed_scale = 0.75
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
