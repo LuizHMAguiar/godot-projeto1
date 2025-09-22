@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsh7uu0gtoqff"]
+[gd_scene load_steps=7 format=3 uid="uid://bsh7uu0gtoqff"]
 
 [ext_resource type="Script" uid="uid://but86od88l3cb" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://kmvstqq62vp1" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dxo8xh3d6d24" path="res://mob.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cf2har5fe74gl" path="res://hud.tscn" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://bvokcmbrbub7d" path="res://assets/art/fundofolha.jpg" id="4_lquwl"]
 
 [sub_resource type="Curve2D" id="Curve2D_0xm2m"]
 _data = {
@@ -16,6 +17,18 @@ script = ExtResource("1_h2yge")
 mob_scene = ExtResource("2_1bvp3")
 
 [node name="HUD" parent="." instance=ExtResource("3_1bvp3")]
+
+[node name="Fundo" type="Sprite2D" parent="."]
+position = Vector2(239.94048, 359.70593)
+rotation = 1.5707964
+scale = Vector2(0.48065478, 0.48057523)
+texture = ExtResource("4_lquwl")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_top = 3.0517578e-05
+offset_right = 480.0
+offset_bottom = 720.0
+color = Color(1.02277845e-07, 0.15709594, 0.16490361, 0.61960787)
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 

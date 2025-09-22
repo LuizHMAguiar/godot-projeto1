@@ -6,6 +6,7 @@ var score
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$HUD.oculta_pontos()
 	pass
 
 
@@ -18,11 +19,13 @@ func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
+	
 
 func new_game():
 	score = 0
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
+	$HUD.mostra_pontos()
 	$HUD.update_score(score)
 	$HUD.show_message("Prepare-se!")
 	get_tree().call_group("mobs", "queue_free")

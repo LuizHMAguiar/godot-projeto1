@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GodotProjeto1"
-run/main_scene="uid://kmvstqq62vp1"
+run/main_scene="uid://bsh7uu0gtoqff"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -52,3 +52,4 @@ move_down={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
