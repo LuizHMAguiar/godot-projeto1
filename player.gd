@@ -13,10 +13,10 @@ func _ready():
 	hide()
 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
+
+	# --- PC: teclado ---
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
@@ -26,6 +26,12 @@ func _process(delta):
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 
+	# --- Android: joystick ---
+	if has_node("/root/Main/HUD/Joystick"): # só se a cena Joystick existir
+		var dir = get_node("/root/Main/HUD/Joystick").direction
+		velocity += dir
+
+	# --- movimento e animação ---
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		$AnimatedSprite2D.play()
@@ -38,7 +44,6 @@ func _process(delta):
 	if velocity.x != 0:
 		$AnimatedSprite2D.animation = "walk"
 		$AnimatedSprite2D.flip_v = false
-		# See the note below about the following boolean assignment.
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 	elif velocity.y != 0:
 		$AnimatedSprite2D.animation = "up"

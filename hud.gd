@@ -5,7 +5,10 @@ signal start_game
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	#if OS.has_feature("mobile"):
+	var joystick = preload("res://Joystick.tscn").instantiate()
+	add_child(joystick)
+	joystick.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,12 +31,14 @@ func show_game_over():
 	# Make a one-shot timer and wait for it to finish.
 	await get_tree().create_timer(1.0).timeout
 	$StartButton.show()
+	$Joystick.hide()
 	
 func update_score(score):
 	$ScoreLabel.text = str(score)
 
 func _on_start_button_pressed():
 	$StartButton.hide()
+	$Joystick.show()
 	start_game.emit()
 
 func _on_message_timer_timeout():
